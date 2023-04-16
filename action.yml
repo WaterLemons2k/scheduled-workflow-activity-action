@@ -1,0 +1,32 @@
+name: 'Keep scheduled workflow activity'
+description: "With this GitHub Action, scheduled workflow won't be disabled even if there's no recent activity in the repository."
+
+inputs:
+  name:
+    description: 'Username used for commit.'
+    required: false
+    default: 'github-actions[bot]'
+  email:
+    description: 'Email address used for commit.'
+    required: false
+    default: '41898282+github-actions[bot]@users.noreply.github.com'
+  message:
+    description: 'Commit message for the repository.'
+    required: false
+    default: 'chore: empty commit'
+  days:
+    description: 'Number of days between the latest commit and the new commit.'
+    required: false
+    default: '50'
+  push:
+    description: 'Whether to push a new commit.'
+    required: false
+    default: 'true'
+
+runs:
+  using: 'node16'
+  main: 'index.js'
+
+branding:
+  icon: 'git-commit'
+  color: 'blue'
