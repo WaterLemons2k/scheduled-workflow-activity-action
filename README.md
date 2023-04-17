@@ -8,6 +8,10 @@ English | [简体中文](README.zh-CN.md)
 
 In GitHub, scheduled workflows are automatically disabled when no repository activity has occurred in 60 days.
 
+It will first display `This workflow will be disabled soon because there's no recent activity in the repository.` :
+
+![disabled-soon](https://user-images.githubusercontent.com/62788816/232479889-592e3660-1da4-4eff-aab9-35475d26fc05.png)
+
 ## Usage
 
 ```yml

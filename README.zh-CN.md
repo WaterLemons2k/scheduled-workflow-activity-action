@@ -8,6 +8,10 @@
 
 在 GitHub 中, 当 60 天没有仓库活动发生时将自动禁用定时工作流。
 
+首先会显示 `This workflow will be disabled soon because there's no recent activity in the repository.` ：
+
+![disabled-soon](https://user-images.githubusercontent.com/62788816/232479889-592e3660-1da4-4eff-aab9-35475d26fc05.png)
+
 ## 使用
 
 ```yml
