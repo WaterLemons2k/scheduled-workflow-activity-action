@@ -35,9 +35,9 @@ fi
 # and divide by 86400 to get the number of interval days.
 DAYS=$(( ($(date +%s)  - $(date +%s -d "$(git show -s --date=format:'%Y%m%d' --format=%cd)")) / 86400 ))
 
-# If the number of days between is greater than or equal to the number
-# of input days, create a new commit. Otherwise nothing to do.
-if [ "$DAYS" -gt "$INPUT_DAYS" ] || [ "$DAYS" -eq "$INPUT_DAYS" ]; then
+# If the number of days between is greater than or equal to the
+# number of input days, create a new commit. Otherwise nothing to do.
+if [ "$DAYS" -ge "$INPUT_DAYS" ]; then
     echo "Create a new commit..."
     git config user.name "$INPUT_NAME"
     git config user.email "$INPUT_EMAIL"
