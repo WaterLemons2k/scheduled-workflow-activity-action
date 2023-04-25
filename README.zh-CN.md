@@ -18,6 +18,8 @@
 
 ## 使用
 
+### GitHub Action
+
 ```yml
 name: Keep scheduled workflow activity
 
@@ -33,6 +35,20 @@ jobs:
         uses: actions/checkout@v3
       - name: Keep scheduled workflow activity
         uses: WaterLemons2k/scheduled-workflow-activity-action@v1
+```
+
+### 可重用工作流
+
+```yml
+name: Keep scheduled workflow activity
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # 每天 00:00 UTC
+
+jobs:
+  keep-scheduled-workflow-activity:
+    uses: WaterLemons2k/scheduled-workflow-activity-action/.github/workflows/reuseable.yml@v1
 ```
 
 ## 输入

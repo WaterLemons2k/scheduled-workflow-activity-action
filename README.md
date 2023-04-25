@@ -18,6 +18,8 @@ After 60 days, it will show **This scheduled workflow is disabled because there 
 
 ## Usage
 
+### GitHub Action
+
 ```yml
 name: Keep scheduled workflow activity
 
@@ -33,6 +35,20 @@ jobs:
         uses: actions/checkout@v3
       - name: Keep scheduled workflow activity
         uses: WaterLemons2k/scheduled-workflow-activity-action@v1
+```
+
+### Reusable workflow
+
+```yml
+name: Keep scheduled workflow activity
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # 00:00 UTC every day
+
+jobs:
+  keep-scheduled-workflow-activity:
+    uses: WaterLemons2k/scheduled-workflow-activity-action/.github/workflows/reuseable.yml@v1
 ```
 
 ## Inputs
