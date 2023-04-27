@@ -2,7 +2,7 @@
 set -e
 
 if [ ! -d .git ]; then
-    echo "Not a git directory!"
+    echo "Not a git directory! Did you forget to run actions/checkout before running this action?"
     exit 1
 fi
 
