@@ -1,34 +1,33 @@
 #!/bin/bash
 set -e
 
+err() {
+    echo "::error::$1" >&2
+    return 1
+}
+
 if [ ! -d .git ]; then
-    echo "Not a git directory! Did you forget to run actions/checkout before running this action?"
-    exit 1
+    err "Not a git directory! Did you forget to run actions/checkout before running this action?"
 fi
 
 if [ -z "$(git show 2>/dev/null)" ]; then
-    echo "No commits yet!"
-    exit 1
+    err "No commits yet!"
 fi
 
 if [ -z "$INPUT_NAME" ] || [ -z "$INPUT_EMAIL" ]; then
-    echo "Missing input \`name\` and/or \`email\`! Need them to commit."
-    exit 1
+    err "Missing input \`name\` and/or \`email\`! Need them to commit."
 fi
 
 if [ -z "$INPUT_MESSAGE" ]; then
-    echo "Missing input \`message\`! Need it as the commit message."
-    exit 1
+    err "Missing input \`message\`! Need it as the commit message."
 fi
 
 if [ -z "$INPUT_DAYS" ]; then
-    echo "Missing input \`days\`! Need it to calculate the number of days between the latest commit and the new commit."
-    exit 1
+    err "Missing input \`days\`! Need it to calculate the number of days between the latest commit and the new commit."
 fi
 
 if [ -z "$INPUT_PUSH" ]; then
-    echo "Missing input \`push\`! Need it to decide whether to push a new commit or not."
-    exit 1
+    err "Missing input \`push\`! Need it to decide whether to push a new commit or not."
 fi
 
 # Subtract the current UNIX timestamp from the latest committed UNIX timestamp
