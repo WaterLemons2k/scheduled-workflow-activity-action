@@ -52,7 +52,7 @@ on:
 
 jobs:
   keep-scheduled-workflow-activity:
-    uses: WaterLemons2k/scheduled-workflow-activity-action/.github/workflows/reuseable.yml@v1
+    uses: WaterLemons2k/scheduled-workflow-activity-action/.github/workflows/reusable.yml@v1
 ```
 
 ## 输入
