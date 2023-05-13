@@ -10,7 +10,7 @@ if [ ! -d .git ]; then
     err "Not a git directory! Did you forget to run actions/checkout before running this action?"
 fi
 
-if [ -z "$(git show 2>/dev/null)" ]; then
+if [ -z "$(git log -1 2>/dev/null)" ]; then
     err "No commits yet!"
 fi
 
@@ -30,9 +30,11 @@ if [ -z "$INPUT_PUSH" ]; then
     err "Missing input \`push\`! Need it to decide whether to push a new commit or not."
 fi
 
-# Subtract the current UNIX timestamp from the latest committed UNIX timestamp
-# and divide by 86400 to get the number of interval days.
-DAYS=$(( ($(date +%s)  - $(date +%s -d "$(git show -s --date=format:'%Y%m%d' --format=%cd)")) / 86400 ))
+# https://stackoverflow.com/a/4946875
+# https://stackoverflow.com/a/64789296
+# Subtract the current UNIX timestamp from the UNIX timestamp of the
+# latest committer date and divide by 86400 to get the number of interval days.
+DAYS=$(( ($(date +%s) - $(git log -1 --format=%ct)) / 86400 ))
 
 # If the number of days between is greater than or equal to the
 # number of input days, create a new commit. Otherwise nothing to do.
