@@ -29,7 +29,7 @@ name: Keep scheduled workflow activity
 
 on:
   schedule:
-    - cron: "0 0 * * *" # 00:00 UTC every day
+    - cron: '0 0 * * *' # 00:00 UTC every day
 
 jobs:
   keep-scheduled-workflow-activity:
@@ -48,7 +48,7 @@ name: Keep scheduled workflow activity
 
 on:
   schedule:
-    - cron: "0 0 * * *" # 00:00 UTC every day
+    - cron: '0 0 * * *' # 00:00 UTC every day
 
 jobs:
   keep-scheduled-workflow-activity:

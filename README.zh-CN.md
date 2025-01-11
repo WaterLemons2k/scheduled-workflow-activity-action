@@ -29,7 +29,7 @@ name: Keep scheduled workflow activity
 
 on:
   schedule:
-    - cron: "0 0 * * *" # 每天 00:00 UTC
+    - cron: '0 0 * * *' # 每天 00:00 UTC
 
 jobs:
   keep-scheduled-workflow-activity:
@@ -48,7 +48,7 @@ name: Keep scheduled workflow activity
 
 on:
   schedule:
-    - cron: "0 0 * * *" # 每天 00:00 UTC
+    - cron: '0 0 * * *' # 每天 00:00 UTC
 
 jobs:
   keep-scheduled-workflow-activity:
@@ -60,7 +60,7 @@ jobs:
 所有输入都是可选的。
 
 | 输入      | 描述                                 | 默认                                                    |
-| --------- | ----------------------------------- | ------------------------------------------------------- |
+| --------- | ------------------------------------ | ------------------------------------------------------- |
 | `name`    | 用于 commit 的用户名。               | `github-actions[bot]`                                   |
 | `email`   | 用于 commit 的电子邮件地址。         | `41898282+github-actions[bot]@users.noreply.github.com` |
 | `message` | 仓库的 commit 消息。                 | `chore: empty commit`                                   |

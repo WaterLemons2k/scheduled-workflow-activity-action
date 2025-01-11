@@ -24,16 +24,20 @@ on:
         required: false
         type: boolean
 
+permissions:
+  contents: write
+
 jobs:
   keep-scheduled-workflow-activity:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
       - name: Keep scheduled workflow activity
         uses: WaterLemons2k/scheduled-workflow-activity-action@v1
         with:
-          name:  ${{ inputs.name }}
+          name: ${{ inputs.name }}
           email: ${{ inputs.email }}
           message: ${{ inputs.message }}
           days: ${{ inputs.days }}

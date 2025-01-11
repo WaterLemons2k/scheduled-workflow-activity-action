@@ -34,7 +34,7 @@ fi
 # https://stackoverflow.com/a/64789296
 # Subtract the current UNIX timestamp from the UNIX timestamp of the
 # latest committer date and divide by 86400 to get the number of interval days.
-DAYS=$(( ($(date +%s) - $(git log -1 --format=%ct)) / 86400 ))
+DAYS=$((($(date +%s) - $(git log -1 --format=%ct)) / 86400))
 
 # If the number of days between is greater than or equal to the
 # number of input days, create a new commit. Otherwise nothing to do.
@@ -44,9 +44,7 @@ if [ "$DAYS" -ge "$INPUT_DAYS" ]; then
     git config user.email "$INPUT_EMAIL"
     git commit --allow-empty --message "$INPUT_MESSAGE"
 
-    if [ "$INPUT_PUSH" = "true" ]; then
-        git push
-    fi
+    $INPUT_PUSH && git push
 else
     echo "Nothing to do..."
 fi
