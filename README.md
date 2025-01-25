@@ -35,8 +35,6 @@ jobs:
   keep-scheduled-workflow-activity:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
       - name: Keep scheduled workflow activity
         uses: WaterLemons2k/scheduled-workflow-activity-action@v1
 ```
@@ -59,10 +57,7 @@ jobs:
 
 All inputs are optional.
 
-| Input     | Description                                                  | Default                                                 |
-| --------- | ------------------------------------------------------------ | ------------------------------------------------------- |
-| `name`    | Username used for commit.                                    | `github-actions[bot]`                                   |
-| `email`   | Email address used for commit.                               | `41898282+github-actions[bot]@users.noreply.github.com` |
-| `message` | Commit message for the repository.                           | `chore: empty commit`                                   |
-| `days`    | Number of days between the latest commit and the new commit. | `50`                                                    |
-| `push`    | Whether to push a new commit.                                | `true`                                                  |
+| Input       | Description                      | Default               |
+| ----------- | -------------------------------- | --------------------- |
+| `token`     | Access token for the GitHub API. | `${{ github.token }}` |
+| `workflows` | Workflows to keep activity.      | The workflow          |

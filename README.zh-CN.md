@@ -35,13 +35,11 @@ jobs:
   keep-scheduled-workflow-activity:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
       - name: Keep scheduled workflow activity
         uses: WaterLemons2k/scheduled-workflow-activity-action@v1
 ```
 
-### 可重用工作流
+### 可重用（reusable）工作流
 
 ```yml
 name: Keep scheduled workflow activity
@@ -59,10 +57,7 @@ jobs:
 
 所有输入都是可选的。
 
-| 输入      | 描述                                 | 默认                                                    |
-| --------- | ------------------------------------ | ------------------------------------------------------- |
-| `name`    | 用于 commit 的用户名。               | `github-actions[bot]`                                   |
-| `email`   | 用于 commit 的电子邮件地址。         | `41898282+github-actions[bot]@users.noreply.github.com` |
-| `message` | 仓库的 commit 消息。                 | `chore: empty commit`                                   |
-| `days`    | 最新 commit 和新 commit 之间的天数。 | `50`                                                    |
-| `push`    | 是否推送新 commit。                  | `true`                                                  |
+| 输入        | 描述                    | 默认                  |
+| ----------- | ----------------------- | --------------------- |
+| `token`     | GitHub API 的访问令牌。 | `${{ github.token }}` |
+| `workflows` | 要保持活动的工作流。    | 此工作流              |

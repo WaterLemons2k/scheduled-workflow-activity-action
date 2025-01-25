@@ -3,42 +3,17 @@ name: Reusable workflow for keep scheduled workflow activity
 on:
   workflow_call:
     inputs:
-      name:
-        default: 'github-actions[bot]'
-        required: false
+      workflows:
         type: string
-      email:
-        default: '41898282+github-actions[bot]@users.noreply.github.com'
-        required: false
-        type: string
-      message:
-        default: 'chore: empty commit'
-        required: false
-        type: string
-      days:
-        default: 50
-        required: false
-        type: number
-      push:
-        default: true
-        required: false
-        type: boolean
 
 permissions:
-  contents: write
+  actions: write
 
 jobs:
   keep-scheduled-workflow-activity:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
       - name: Keep scheduled workflow activity
         uses: WaterLemons2k/scheduled-workflow-activity-action@v1
         with:
-          name: ${{ inputs.name }}
-          email: ${{ inputs.email }}
-          message: ${{ inputs.message }}
-          days: ${{ inputs.days }}
-          push: ${{ inputs.push }}
+          workflows: ${{ inputs.workflows }}
