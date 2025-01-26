@@ -1,5 +1,6 @@
 #!/bin/bash
 set -eo pipefail
+. colors.sh
 
 debug() {
     echo "::debug::$1"
@@ -32,8 +33,8 @@ for workflow in $INPUT_WORKFLOWS; do
     debug "endpoint: $endpoint"
 
     if gh api -X PUT --silent "$endpoint"; then
-        echo "✓ Enabled $workflow"
+        echo "$(green '✓ Enabled') $workflow"
     else
-        warn "✗ Failed to enable $workflow"
+        warn "$(red '✗ Failed to enable') $workflow"
     fi
 done
