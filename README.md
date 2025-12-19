@@ -27,6 +27,9 @@ After 60 days, it will show:
 ```yml
 name: Keep scheduled workflow activity
 
+permissions:
+  actions: write
+
 on:
   schedule:
     - cron: '0 0 * * *' # 00:00 UTC every day

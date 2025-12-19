@@ -27,6 +27,9 @@
 ```yml
 name: Keep scheduled workflow activity
 
+permissions:
+  actions: write
+
 on:
   schedule:
     - cron: '0 0 * * *' # 每天 00:00 UTC
