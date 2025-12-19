@@ -1,9 +1,7 @@
 #!/bin/sh
 
 _esc() {
-	if tty -s; then
-		printf '\e[%sm' "$1"
-	fi
+	printf '\e[%sm' "$1"
 }
 _color() {
 	printf '%s' "$(_esc "$1")$2$(_esc 0)"
