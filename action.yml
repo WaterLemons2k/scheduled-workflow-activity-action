@@ -2,18 +2,6 @@ name: 'Keep scheduled workflow activity'
 description: "With this GitHub Action, scheduled workflow won't be disabled even if there's no recent activity in the repository."
 
 inputs:
-  # DEPRECATED. Will be removed in v2.
-  name:
-    description: 'Username used for commit.'
-  email:
-    description: 'Email address used for commit.'
-  message:
-    description: 'Commit message for the repository.'
-  days:
-    description: 'Number of days between the latest commit and the new commit.'
-  push:
-    description: 'Whether to push a new commit.'
-
   token:
     description: 'Access token for the GitHub API.'
     default: '${{ github.token }}'
@@ -21,7 +9,7 @@ inputs:
     description: 'Workflows to keep activity.'
 
 runs:
-  using: 'node20'
+  using: 'node24'
   main: 'index.js'
 
 branding:
