@@ -33,7 +33,7 @@ for workflow in $INPUT_WORKFLOWS; do
 	endpoint=$API_BASE/$workflow/enable
 	debug "endpoint: $endpoint"
 
-	if gh api -X PUT "$endpoint"; then
+	if gh api -X PUT --silent "$endpoint"; then
 		echo "$(green '✓ Enabled') $workflow"
 	else
 		warn "$(red '✗ Failed to enable') $workflow"
