@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Keep scheduled workflow activity
-        uses: WaterLemons2k/scheduled-workflow-activity-action@v1
+        uses: WaterLemons2k/scheduled-workflow-activity-action@v2
 ```
 
 ### Reusable workflow
@@ -47,13 +47,16 @@ jobs:
 ```yml
 name: Keep scheduled workflow activity
 
+permissions:
+  actions: write
+
 on:
   schedule:
     - cron: '0 0 * * *' # 00:00 UTC every day
 
 jobs:
   keep-scheduled-workflow-activity:
-    uses: WaterLemons2k/scheduled-workflow-activity-action/.github/workflows/reusable.yml@v1
+    uses: WaterLemons2k/scheduled-workflow-activity-action/.github/workflows/reusable.yml@v2
 ```
 
 ## Inputs
