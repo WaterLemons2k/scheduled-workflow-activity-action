@@ -36,7 +36,7 @@ on:
 
 jobs:
   keep-scheduled-workflow-activity:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
       - name: Keep scheduled workflow activity
         uses: WaterLemons2k/scheduled-workflow-activity-action@v2
